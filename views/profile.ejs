@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/stylesheets/css/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/css/logo.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        span{           
+            font-size: 5vw;              
+        }
+        a{
+            text-decoration: none;
+        }
+        #details_data{
+            color:crimson;
+            font-size:3vw;
+            padding:2%;
+        }
+        #details_fetched{
+            color:black;
+            font-size: 2vw;
+        }
+        h1{
+            color:blueviolet;
+            position: relative;
+            padding-top:10%;
+            padding-left: 5%;
+            font-family: Arial, Helvetica, sans-serif
+        }
+        .container{
+            text-align: left;
+            font-family: 'Sofia';
+            margin-left:38%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span>AUCLINE</span>            
+            <a class="nav-link" href="/homepage">Back to Dashboard</a>
+            <a class="nav-link" href="/reset">Reset Password</a>
+            <a class="nav-link">Edit Details </a>            
+        </nav>
+    </header><br>
+
+    <div class="container">
+        <h1>HELLO <%=user.username%></h1>
+        <label id="details_data">Full Name: </label><label id="details_fetched"><%=user.name%></label><br>
+        <label id="details_data"> E-mail Address: </label><label id="details_fetched"><%=user.email%></label><br>
+        <label id="details_data"> Country: </label><label id="details_fetched"><%=user.country%></label><br>
+        <label id="details_data">Items auctioned:</label><label id="details_fetched"><%=count%></label><br>
+        <label id="details_data">Items set for auction:</label><label id="details_fetched">laterlater</label><br>
+    </div>
+    <script>
+        
+    </script>
+</body>
+
+</html> 

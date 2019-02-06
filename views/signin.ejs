@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/logo.css">
+    <title>Login</title>
+    <style>
+        body{
+            background: black;
+            padding:10%;            
+        }
+        form{
+            left:250px;
+            height:45vh;
+            width: 35vw;
+            position: relative;          
+            padding:5%;
+            padding-top: 1%;
+            background: white;
+            text-align: center;            
+        }
+        b{
+    color: mediumvioletred;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+h2{
+    color:crimson;
+}
+span{
+    /* text-transform: uppercase;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;*/
+    font-size: 2vw;/*
+    font-family: 'Poppins', sans-serif;
+    padding:1%;     */
+}
+
+ input[type=text],input[type=url],input[type=password] {
+  width: 50%;
+  padding: 10px;
+  color: black;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f0eef3;
+}
+
+input[type=text]:focus,input[type=url]:focus,input[type=password]:focus {
+  background-color: rgb(10, 10, 10);
+  outline: none;
+  color:white;
+}
+button{
+    color:white;
+    background-color: green;
+    padding:5px;
+    height:35px;
+    width:20vw;
+    font-size: 20px;
+    
+}
+    </style>
+</head>
+<body>    
+    <form method="post" action="/signin">
+        <h2>Sign in to <span>AUCLINE</span></h2>
+        <label for="username"><b>Username:</b></label>
+        <input type="text" placeholder="Enter your username" name="username" required><br><br>
+        <label for="password"><b>Password:</b></label>
+        <input type="password" name="password" placeholder="Enter Password" id="password" required><br>
+        <input type="checkbox" onclick="myFunction()">Show password &nbsp;&nbsp;&nbsp;
+        <a href="/forgot" id="forget_pw">Forgot your password?</a><br><br>
+        <button id="login_btn" onclick="">Login</button>
+    </form>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+
+</html>

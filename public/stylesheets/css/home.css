@@ -1,0 +1,33 @@
+
+body{
+    background: black;
+}
+
+
+span{   
+    font-size: 5vw;      
+}
+#d1{
+    height:10vh;
+    background-color:black;  
+    padding:7%;
+    color:white;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+}
+#d2{
+    height:auto;
+    background: grey;
+    padding:2.5%;
+    font-size: 18px;
+    font-family:  Arial, sans-serif;
+}
+li{
+    list-style: none;
+}
+li::before{
+    content: "\2696";
+    padding: 1%;
+}

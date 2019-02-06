@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create a new auction</title>    
+    <link rel="stylesheet" href="/stylesheets/css/logo.css">
+    <link rel="stylesheet" href="/stylesheets/css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+       
+    <style>
+    #item_pic_upload{
+        padding:5px;
+        color:black;
+        background-color: gainsboro;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="bg-img">
+        <p id="title">
+            <span><a href="#home">Aucline</a></span><br>Your One - Stop Solution for e-auction!
+        </p>
+    <form class="container" method="post" action="/homepage/newauc" enctype="multipart/form-data">
+        <h1>Create a new auction</h1>     
+
+        <label for="item_name"><b>Item Name</b></label>
+        <input type="text" placeholder="Enter item name" name="item_name" required><br><br>
+
+        <label for="base_price"><b>Base Price</b></label>
+        <input type="number" placeholder="Enter base price for the item" name="baseprice" default="1000" required><br><br>
+
+        <label for="start_date"><b>Start Date </b></label>
+        <input type="date" name="startDate" placeholder="Enter start date of auction" id="start_date" required><br>
+        <!--add date drop down-->
+        <br><br>
+
+        <label for="end_date"><b>End Date</b></label>
+        <input type="date" name="endDate" placeholder="Enter end date of auction " required><br><br>
+
+        <label for="description"><b>Any details about the item: </b></label><br>
+        <textarea rows="4" cols="50" name="item_desc" form="usrform">
+        Enter text here...</textarea><br><br>
+        <input type="file" name="file" id="file">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="hidden" name="x" id="x" value="0" />
+
+        <!--add a dropdown menu for country list-->
+
+        <button type="submit" class="btn">Register</button>
+        <!--Onclicking register display success msg-->
+    </form>
+    <script>
+        $("input[type='file']").on("change", function(){  
+            var numFiles = $(this).get(0).files.length;
+            console.log(numFiles);
+            document.getElementById('x').value = numFiles;
+    });
+
+    </script>
+</body>
+
+</html>

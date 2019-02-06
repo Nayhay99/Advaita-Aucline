@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<!-- check the script changessssss -->
+<!-- BIDDER PAGE ADDED -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/css/logo.css">
+    <link rel="stylesheet" href="/stylesheets/css/navbar.css">
+    <link rel="import" href="img_ss.ejs">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
+    <script src="nav_script.js"></script>
+    <script>
+        $(function () {
+            $("#img_ss").load("<%-include img_ss.ejs%>");
+        })
+    </script>
+
+    <style>   
+          .dropbtn {
+        background-color: aqua;
+        color: black;
+        padding-right: 2px;
+        padding-left:0;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        }
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: relative;
+  background-color: #f1f1f1;
+  min-width: 150px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown a:hover {background-color: #ddd;}
+.show {display: block;}
+    
+      
+        span{           
+            font-size: 5vw;            
+        }
+        table{
+           margin-left:25%;
+       }
+        #create_auc,#live_stat,#auc_stat{
+            padding:10%;            
+            margin:auto;
+            height:auto;
+            position: relative;          
+        }
+        h1{
+            color:rgb(226, 116, 153);
+            font-family: 'Sofia';
+        }
+        a{
+            text-decoration: none;
+        }
+        table{
+           margin-left:25%;
+       }
+        th{
+            text-transform: uppercase;
+            padding:20px;
+        }
+        #b1{
+            font-size: 20px;
+            padding:10px;
+            color:white;
+            background-color: green;
+        }
+    </style>
+   
+</head>
+<body>
+    <header>
+        <nav>
+            <span>AUCLINE</span>
+            <div class="dropdown nav-link">
+                    <button onclick="myFunction()" class="dropbtn"><ul>WELCOME!</ul></button><!--Add name from database-->                <div id="myDropdown" class="dropdown-content">
+                    <a href="/signin">Logout</a>
+                    <a href="/homepage/profile">My Details</a> <!--where this goes?-->                  
+                </div>
+            </div>
+            <a class="nav-link"></a>
+            <a class="nav-link" href="/contactUs">Contact Us </a>
+            <a class="nav-link" href="#live_stat">Live Bids </a>
+            <a class="nav-link" href="#auc_stat">My auction stat</a>
+            <a class="nav-link" href="#create_auc">Create a new auction</a>            
+        </nav>
+    </header><br>
+    <div id="img_ss" w3-include-html="<%-include img_ss.ejs%>"></div><br>
+    <div id="create_auc"><h1>Create a new auction</h1>
+    <h3>Rules and Regulations for auction.</h3>
+    <input type="checkbox" id="check_box">I have read the terms and conditions and abide by them.<br><br>
+    <form>
+        <input type="button" value="Procced" onclick="Redirect();" id="b1" />
+    </form>
+    </div>
+    <form method="post" action="/homepage/showitems">
+    <div id="auc_stat">
+        <h1>My auction stat</h1>
+        <table>
+            <tr>
+            <th>Auction Item</th>
+            <th>Value</th>
+            <th>Time Left</th>
+            <th>Current Bid</th>
+            </tr>
+            <% for(var i =0;i<data.length;i++){%>
+            <tr>
+                <td><%=data[i].item_name%></td>
+                <td><%=data[i].baseprice%></td>
+                <td>tobedone</td>
+                <td>notyeat done</td>
+            </tr>
+            <%}%>    
+        </table>
+    </div>
+    <div id="live_stat"><h1>Live auction</h1>
+        <table>
+            <tr>
+            <th>Auction Item</th>
+            <th>Value</th>
+            <th>Owner</th>
+            <th>Time Left</th>
+            <th>Current Bid <i class="fa fa-refresh fa-spin" style="font-size:24px">&#xf021;</i></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    </form> 
+    <script>        
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+        function Redirect(){
+            var isChecked = $('#check_box').is(':checked');
+            if(isChecked === true)
+            {
+                window.location.href = './homepage/newauc';
+            }
+            else{
+                window.alert("Please check the checkbox")
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

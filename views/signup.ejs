@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration</title>
+    <!-- <link rel="icon" href="https://img.icons8.com/color/1600/source-code.png" type="image/x-icon">add an image -->
+    <link rel = "stylesheet" href="/stylesheets/css/login.css">
+    <link rel="stylesheet" href="/stylesheets/logo.css">
+</head>
+<body>
+    <div class="bg-img">
+    <p id="title">
+    <span><a href="#home">Aucline</a></span><br>Your One - Stop Solution for e-auction!    
+    </p>
+        <form class="container" method="post" action="/signup">
+            <h1>Registration</h1>
+                <label for="user"><b>Register as:</b></label>
+                <label for="admin">
+                    <input id="admin" type="radio" value="Admin" name="type">Admin
+                </label>
+                <label for="bidder">
+                    <input id="bidder" type="radio" value="Bidder" name="type">Bidder
+                </label>
+            <br>
+            <label for="name"><b>Full Name</b></label>
+            <input type="text" placeholder="Enter your full name" name="name" required><br>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter your username" name="username" required><br>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" name="password" placeholder="Enter Password" id="password" required><br>
+            <input type="checkbox" onclick="myFunction()">Show password
+            <br><br>
+            <label for="password2"><b>Confirm Password</b></label>
+            <input type="password" name="password2" placeholder="Re-enter Password" required><br>
+
+            <label for="email"><b>Email Address</b></label>
+            <input type="text" placeholder="Enter your email address" name="email" required><br>
+
+            <label for="phone"><b>Phone number</b></label>
+            <input type="text" placeholder="Enter your phone number" name="phone" required>         
+           
+            <label for="projects"><b>Country</b></label><br>
+            <input type="text" name="country" required><br><!--add a dropdown menu for country list-->
+  
+            <button type="submit" class="btn">Register</button>
+            <!--Onclicking register display success msg-->
+        </form>
+    </div>
+    <script>
+            function myFunction() {
+                var x = document.getElementById("password");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+    </script>
+</body>
+
+</html>

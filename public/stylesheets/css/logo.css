@@ -1,0 +1,10 @@
+span{
+    text-transform: uppercase;
+	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+    font-size: 5vw;
+    font-family: 'Poppins', sans-serif;
+    padding:1%;    
+}

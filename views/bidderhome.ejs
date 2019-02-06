@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bidding Page</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/logo.css">
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+    <link rel="import" href="img_ss.html">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link rel="stylesheet" href="stylesheets/bar.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="nav_script.js"></script>
+    <script>
+        $(function () {
+            $("#img_ss").load("img_ss.html");
+        })
+    </script>
+
+    <style>
+        .dropbtn {
+        background-color: aqua;
+        color: black;
+        padding-right: 2px;
+        padding-left:0;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        }
+        /* .dropbtn:hover, .dropbtn:focus {
+        background-color: #2980B9;
+        } */
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+        .dropdown-content {
+        display: none;
+        position: relative;
+        background-color: #f1f1f1;
+        min-width: 150px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        }
+        .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        }
+        .dropdown a:hover {background-color: #ddd;}
+        .show {display: block;}
+    
+      
+        span{           
+            font-size: 5vw;              
+        }
+        #create_auc,#live_stat,#auc_stat{
+            padding:10%;
+            text-align: center;            
+            margin:auto;
+            height:auto;
+            position: relative;  
+            height:100vh;        
+        }
+        h1{
+            color:rgb(226, 116, 153);
+            font-family: 'Sofia';
+        }
+        a{
+            text-decoration: none;
+        }
+       table{
+           margin-left:25%;
+        }
+        th{
+            text-transform: uppercase;
+            padding:20px;
+        }
+        #b1{
+            font-size: 20px;
+            padding:10px;
+            color:white;
+            background-color: green;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <span>AUCLINE</span>
+            <div class="dropdown nav-link">
+                <button onclick="myFunction()" class="dropbtn">Welcome Name</button>
+                <!--Add name from database-->
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#logout">Logout</a>
+                    <a href="user_profile.html">My Details</a>
+                </div>
+            </div>
+            <a class="nav-link"></a>
+            <a class="nav-link">Contact Us </a>
+            <a class="nav-link" href="#live_stat">Live Bids </a>
+            <a class="nav-link" href="#auc_stat">My bidding history</a>
+            <a class="nav-link" href="#create_auc">Participate in an auction</a>
+        </nav>
+    </header><br>
+    <div class="search-box">
+        <input type="text" placeholder="Type to search items" class="search-txt">
+        <a href="" class="search-btn">
+            <i class="fas fa-search" style="font-size:35px"></i>
+        </a>
+    </div>
+
+    <div id="img_ss" w3-include-html="img_ss.html"></div><br>
+
+    <div id="create_auc">
+        <h1>Partcipate in a new auction</h1>
+        <h3>Rules and Regulations for auction.</h3>
+        <input type="checkbox" id="check_box">I have read the terms and conditions and abide by them.<br><br>
+        <form>
+            <input type="button" value="Procced" onclick="Redirect();" id="b1" />
+        </form>
+    </div>
+
+    <div id="auc_stat">
+        <h1>My Bidding History</h1>
+        <table>
+            <th>Auction Item</th>
+            <th>Base Value</th>
+            <th>Bid Value</th>
+            <th>Status  </th> <!--To display whether the bidder purchased it or was outbid-->
+        </table>
+        <!--Display error msg if the admin has nothing to bid-->
+    </div>
+
+    <div id="live_stat">
+        <h1>Live auction</h1>
+        <table>
+            <th>Auction Item</th>
+            <th>Value</th>
+            <th>Owner</th>
+            <th>Time Left</th>
+            <th>Current Bid <i class="fa fa-refresh fa-spin" style="font-size:24px">&#xf021;</i><sub style="font-size:5px">refreshes
+                    every 60 sec</sub></th>
+        </table>
+    </div>
+    <script>
+         function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        function Redirect() {
+                var isChecked = $('#check_box').is(':checked');
+                if (isChecked === true) {
+                    window.location = "new_bid.html";
+                }
+                else {
+                    window.alert("Please check the checkbox")
+                }
+            }
+    </script>
